@@ -1,0 +1,89 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-card class="center-card">
+    <mat-progress-bar class="progress-bar" mode="query" value="40"></mat-progress-bar>
+    <mat-card-header>
+      <div mat-card-avatar class="header-image"></div>
+      <mat-card-title i18n="@companyName">Kites</mat-card-title>
+      <mat-card-subtitle>Sign up as supplier</mat-card-subtitle>
+      <div class="flex-one"></div>
+      <button mat-button (click)="onLogin()">I already have account</button>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-horizontal-stepper linear #stepper>
+        <mat-step [stepControl]="formGroupLoginInfo">
+          <form [formGroup]="formGroupLoginInfo" class="flex-column">
+            <ng-template matStepLabel>Login Credentials</ng-template>
+            <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <input matInput type="email" formControlName="email" required>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Password</mat-label>
+              <input matInput formControlName="password" required type="password">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Password Again</mat-label>
+              <input matInput formControlName="confirm" required type="password">
+            </mat-form-field>
+          </form>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button class="pull-right" matStepperNext>Next</button>
+          </div>
+        </mat-step>
+        <mat-step [stepControl]="formGroupContact">
+          <form [formGroup]="formGroupContact" class="flex-column">
+            <ng-template matStepLabel>Contact Person</ng-template>
+            <mat-form-field appearance="outline">
+              <mat-label>Your Name</mat-label>
+              <input matInput formControlName="name" required>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Your Address</mat-label>
+              <textarea matInput
+                        required
+                        cdkTextareaAutosize
+                        formControlName="address"
+                        cdkAutosizeMinRows="2"
+                        cdkAutosizeMaxRows="8"></textarea>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Mobile Number</mat-label>
+              <input matInput formControlName="mobile" required>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button class="pull-right" matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="formGroupCompany">
+          <form [formGroup]="formGroupCompany" class="flex-column">
+            <ng-template matStepLabel>Company Details</ng-template>
+            <mat-form-field appearance="outline">
+              <mat-label>Company Name</mat-label>
+              <input matInput formControlName="name" required>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>BR Number</mat-label>
+              <input matInput formControlName="br" required>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Company Address</mat-label>
+              <textarea matInput
+                        required
+                        cdkTextareaAutosize
+                        formControlName="caddress"
+                        cdkAutosizeMinRows="2"
+                        cdkAutosizeMaxRows="8"></textarea>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <!--<button mat-button class="pull-right" matStepperNext>Next</button>-->
+            </div>
+          </form>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </mat-card-content>
+  </mat-card>
+</mat-sidenav-container>
